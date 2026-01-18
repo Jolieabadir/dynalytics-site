@@ -471,6 +471,54 @@ export default function Home() {
           </p>
         </div>
       </section>
+      {/* Why Contribute */}
+      <section className="max-w-6xl mx-auto px-8 py-20">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl font-bold bg-gradient-to-r from-[#4A4A4A] to-[#6A5A6A] bg-clip-text text-transparent mb-6">
+            Why Contribute?
+          </h2>
+          <p className="text-lg text-[#6A6A6A] max-w-3xl mx-auto leading-relaxed">
+            Detecting injury patterns before you feel them
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-8">
+          <div className="bg-white/70 backdrop-blur-lg rounded-3xl p-8 shadow-xl border border-white/50">
+            <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-[#D4A5A5] to-[#C49494] bg-clip-text text-transparent">
+              For You
+            </h3>
+            <ul className="space-y-3 text-[#6A6A6A]">
+              <li className="flex items-start gap-3">
+                <span className="text-[#7DB9A3] mt-1">•</span>
+                Get personalized movement insights
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-[#7DB9A3] mt-1">•</span>
+                Exclusive access to new releases
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-[#7DB9A3] mt-1">•</span>
+                Giveaway entries for top contributors
+              </li>
+            </ul>
+          </div>
+
+          <div className="bg-white/70 backdrop-blur-lg rounded-3xl p-8 shadow-xl border border-white/50">
+            <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-[#B8A9C9] to-[#A598B8] bg-clip-text text-transparent">
+              For The Community
+            </h3>
+            <ul className="space-y-3 text-[#6A6A6A]">
+              <li className="flex items-start gap-3">
+                <span className="text-[#7DB9A3] mt-1">•</span>
+                Advance climbing biomechanics research
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-[#7DB9A3] mt-1">•</span>
+                Improve movement screening methods
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-[#7DB9A3] mt-1">•</span>
+                Help develop better training protocols
               </li>
             </ul>
           </div>
