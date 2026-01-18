@@ -473,11 +473,11 @@ export default function Home() {
               </li>
               <li className="flex items-start gap-3">
                 <span className="text-[#7DB9A3] mt-1">•</span>
-                Free access to beta platform
+                Exclusive access to new releases
               </li>
               <li className="flex items-start gap-3">
                 <span className="text-[#7DB9A3] mt-1">•</span>
-                Early access to new features
+                Giveaway entries for top contributors
               </li>
             </ul>
           </div>
