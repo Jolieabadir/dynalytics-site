@@ -533,6 +533,7 @@ export default function Home() {
                   <option>Your role</option>
                   <option>Athlete</option>
                   <option>Physical Therapist</option>
+                  <option>Coach</option>
                   <option>Researcher</option>
                   <option>Other</option>
                 </select>
@@ -578,7 +579,7 @@ export default function Home() {
           </div>
           <div className="w-full h-px bg-gradient-to-r from-transparent via-[#E5E5E5] to-transparent mb-4" />
           <p className="text-sm text-[#AFAFAF]">
-            © 2024 Dynalytics. All rights reserved.
+            © 2026 Dynalytics. All rights reserved.
           </p>
         </div>
       </footer>
