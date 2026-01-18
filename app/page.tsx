@@ -457,7 +457,7 @@ export default function Home() {
             Why Contribute?
           </h2>
           <p className="text-lg text-[#6A6A6A] max-w-3xl mx-auto leading-relaxed">
-            Help build the future of climbing performance analysis
+            Detecting injury patterns before you feel them
           </p>
         </div>
 
