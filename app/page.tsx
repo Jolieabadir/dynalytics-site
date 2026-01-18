@@ -444,7 +444,7 @@ export default function Home() {
             </div>
             <div className="bg-white/70 backdrop-blur-lg rounded-2xl p-6 flex-1 shadow-xl border border-white/50">
               <h3 className="font-bold text-[#4A4A4A] mb-2">Phase 3: Predictive Analytics</h3>
-              <p className="text-[#6A6A6A]">Injury risk assessment and prevention strategies</p>
+              <p className="text-[#6A6A6A]">Injury risk pattern recognition and movement analysis tools</p>
             </div>
           </div>
         </div>
