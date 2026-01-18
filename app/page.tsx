@@ -1,6 +1,63 @@
+"use client";
+
 import Link from "next/link";
+import Image from "next/image";
+import { useState } from "react";
+
+const demoScreenshots = [
+  {
+    src: "/demo/01-upload.png",
+    title: "Upload Your Video",
+    description: "Simply upload a climbing video (.mov, .mp4, .avi) to begin the analysis process."
+  },
+  {
+    src: "/demo/02-skeleton.png",
+    title: "Automatic Pose Detection",
+    description: "Our AI automatically detects and tracks your body's skeleton, measuring joint angles in real-time."
+  },
+  {
+    src: "/demo/03-move-type.png",
+    title: "Classify Your Moves",
+    description: "Mark the start and end of movements, then classify them as lock-offs, dynos, deadpoints, and more."
+  },
+  {
+    src: "/demo/04-define-move-1.png",
+    title: "Detailed Move Analysis",
+    description: "Specify which arm, elbow angle, contact points, and how long the position was held."
+  },
+  {
+    src: "/demo/05-define-move-2.png",
+    title: "Rate Form & Effort",
+    description: "Add technique modifiers, rate your form quality, and log your perceived effort level."
+  },
+  {
+    src: "/demo/06-tagging-1.png",
+    title: "Tag Sensations",
+    description: "Scrub through frames and tag how your body felt - sharp pain, pumped, strong, fatigued."
+  },
+  {
+    src: "/demo/07-tagging-2.png",
+    title: "Precise Body Mapping",
+    description: "Associate sensations with specific body parts and intensity levels for comprehensive data."
+  },
+  {
+    src: "/demo/08-thank-you.png",
+    title: "Contribute to Research",
+    description: "Your data helps build better movement analysis tools for climbers everywhere."
+  }
+];
 
 export default function Home() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % demoScreenshots.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + demoScreenshots.length) % demoScreenshots.length);
+  };
+
   return (
     <div className="min-h-screen overflow-hidden relative bg-gradient-to-br from-[#FEFBFB] via-white to-[#F8F6FF]">
       {/* Enhanced floating blobs */}
@@ -80,36 +137,36 @@ export default function Home() {
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
-          <div className="group bg-white/70 backdrop-blur-lg rounded-3xl p-8 text-center shadow-2xl border border-white/50 hover:shadow-[#D4A5A5]/20 hover:shadow-3xl transition-all duration-500 hover:scale-105 hover:bg-white/80">
-            <div className="w-20 h-20 bg-gradient-to-r from-[#D4A5A5] to-[#C49494] rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-[#D4A5A5]/30 group-hover:shadow-[#D4A5A5]/50 transition-shadow duration-300">
-              <span className="text-3xl">🧗‍♀️</span>
+          <div className="group relative overflow-hidden rounded-3xl bg-white/70 backdrop-blur-lg p-8 shadow-2xl border border-white/50 hover:shadow-[#D4A5A5]/20 transition-all duration-500 hover:scale-105">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#D4A5A5]/20 to-transparent rounded-bl-full" />
+            <div className="w-16 h-16 bg-gradient-to-r from-[#D4A5A5] to-[#C49494] rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
+              <span className="text-2xl">🧗</span>
             </div>
-            <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-[#4A4A4A] to-[#6A5A6A] bg-clip-text text-transparent">Athletes</h3>
-            <p className="text-[#6A6A6A] leading-relaxed font-medium">
-              Athletes seeking to understand their movement patterns, identify inefficiencies, 
-              and optimize their climbing performance through data-driven insights.
+            <h3 className="text-2xl font-bold mb-3 text-[#4A4A4A]">Climbers</h3>
+            <p className="text-[#6A6A6A] leading-relaxed">
+              Understand your movement patterns, identify weaknesses, and track your progress over time.
             </p>
           </div>
 
-          <div className="group bg-white/70 backdrop-blur-lg rounded-3xl p-8 text-center shadow-2xl border border-white/50 hover:shadow-[#B8A9C9]/20 hover:shadow-3xl transition-all duration-500 hover:scale-105 hover:bg-white/80">
-            <div className="w-20 h-20 bg-gradient-to-r from-[#B8A9C9] to-[#A598B8] rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-[#B8A9C9]/30 group-hover:shadow-[#B8A9C9]/50 transition-shadow duration-300">
-              <span className="text-3xl">🏥</span>
+          <div className="group relative overflow-hidden rounded-3xl bg-white/70 backdrop-blur-lg p-8 shadow-2xl border border-white/50 hover:shadow-[#B8A9C9]/20 transition-all duration-500 hover:scale-105">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#B8A9C9]/20 to-transparent rounded-bl-full" />
+            <div className="w-16 h-16 bg-gradient-to-r from-[#B8A9C9] to-[#A598B8] rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
+              <span className="text-2xl">🩺</span>
             </div>
-            <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-[#4A4A4A] to-[#6A5A6A] bg-clip-text text-transparent">Physical Therapists</h3>
-            <p className="text-[#6A6A6A] leading-relaxed font-medium">
-              Healthcare professionals who need objective movement data to improve 
-              injury prevention and rehabilitation programs for climbing athletes.
+            <h3 className="text-2xl font-bold mb-3 text-[#4A4A4A]">Physical Therapists</h3>
+            <p className="text-[#6A6A6A] leading-relaxed">
+              Access quantified movement data to better understand and treat climbing-specific injuries.
             </p>
           </div>
 
-          <div className="group bg-white/70 backdrop-blur-lg rounded-3xl p-8 text-center shadow-2xl border border-white/50 hover:shadow-[#7DB9A3]/20 hover:shadow-3xl transition-all duration-500 hover:scale-105 hover:bg-white/80">
-            <div className="w-20 h-20 bg-gradient-to-r from-[#7DB9A3] to-[#6AA892] rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-[#7DB9A3]/30 group-hover:shadow-[#7DB9A3]/50 transition-shadow duration-300">
-              <span className="text-3xl">🔬</span>
+          <div className="group relative overflow-hidden rounded-3xl bg-white/70 backdrop-blur-lg p-8 shadow-2xl border border-white/50 hover:shadow-[#7DB9A3]/20 transition-all duration-500 hover:scale-105">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#7DB9A3]/20 to-transparent rounded-bl-full" />
+            <div className="w-16 h-16 bg-gradient-to-r from-[#7DB9A3] to-[#6AA892] rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
+              <span className="text-2xl">🔬</span>
             </div>
-            <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-[#4A4A4A] to-[#6A5A6A] bg-clip-text text-transparent">Researchers</h3>
-            <p className="text-[#6A6A6A] leading-relaxed font-medium">
-              Researchers studying climbing biomechanics who need access to high-quality, 
-              labeled movement data for advancing sports science.
+            <h3 className="text-2xl font-bold mb-3 text-[#4A4A4A]">Researchers</h3>
+            <p className="text-[#6A6A6A] leading-relaxed">
+              Contribute to the growing body of knowledge in climbing biomechanics and injury prevention.
             </p>
           </div>
         </div>
@@ -205,6 +262,114 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* ========== NEW DEMO SECTION ========== */}
+      <section className="max-w-6xl mx-auto px-8 py-20">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-[#4A4A4A] via-[#6A5A6A] to-[#4A4A4A] bg-clip-text text-transparent mb-6">
+            See It In Action
+          </h2>
+          <div className="w-24 h-1 bg-gradient-to-r from-[#D4A5A5] to-[#B8A9C9] mx-auto rounded-full mb-6" />
+          <p className="text-lg text-[#6A6A6A] max-w-3xl mx-auto leading-relaxed">
+            Walk through the data collection experience
+          </p>
+        </div>
+
+        {/* Demo Carousel */}
+        <div className="relative">
+          <div className="bg-white/80 backdrop-blur-xl rounded-3xl p-8 shadow-2xl border border-white/60 overflow-hidden">
+            {/* Main Image Display */}
+            <div className="relative aspect-video mb-8 rounded-2xl overflow-hidden bg-[#F5F3F0] shadow-inner">
+              <Image
+                src={demoScreenshots[currentSlide].src}
+                alt={demoScreenshots[currentSlide].title}
+                fill
+                className="object-contain"
+                priority
+              />
+            </div>
+
+            {/* Slide Info */}
+            <div className="text-center mb-8">
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[#D4A5A5]/10 to-[#B8A9C9]/10 rounded-full mb-4">
+                <span className="text-sm font-medium text-[#6A6A6A]">Step {currentSlide + 1} of {demoScreenshots.length}</span>
+              </div>
+              <h3 className="text-2xl font-bold text-[#4A4A4A] mb-3">
+                {demoScreenshots[currentSlide].title}
+              </h3>
+              <p className="text-[#6A6A6A] max-w-2xl mx-auto leading-relaxed">
+                {demoScreenshots[currentSlide].description}
+              </p>
+            </div>
+
+            {/* Navigation Controls */}
+            <div className="flex items-center justify-center gap-4">
+              <button
+                onClick={prevSlide}
+                className="group flex items-center justify-center w-12 h-12 rounded-full bg-white/70 border border-white/50 shadow-lg hover:shadow-xl hover:bg-white transition-all duration-300 hover:scale-110"
+                aria-label="Previous slide"
+              >
+                <svg className="w-5 h-5 text-[#6A6A6A] group-hover:text-[#D4A5A5] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                </svg>
+              </button>
+
+              {/* Dot Indicators */}
+              <div className="flex items-center gap-2">
+                {demoScreenshots.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentSlide(index)}
+                    className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                      index === currentSlide
+                        ? 'bg-gradient-to-r from-[#D4A5A5] to-[#B8A9C9] w-8'
+                        : 'bg-[#E5E5E5] hover:bg-[#D4A5A5]/50'
+                    }`}
+                    aria-label={`Go to slide ${index + 1}`}
+                  />
+                ))}
+              </div>
+
+              <button
+                onClick={nextSlide}
+                className="group flex items-center justify-center w-12 h-12 rounded-full bg-white/70 border border-white/50 shadow-lg hover:shadow-xl hover:bg-white transition-all duration-300 hover:scale-110"
+                aria-label="Next slide"
+              >
+                <svg className="w-5 h-5 text-[#6A6A6A] group-hover:text-[#D4A5A5] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          {/* Decorative elements */}
+          <div className="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-r from-[#D4A5A5]/20 to-[#B8A9C9]/20 rounded-full blur-2xl -z-10" />
+          <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-gradient-to-r from-[#7DB9A3]/20 to-[#B8A9C9]/20 rounded-full blur-2xl -z-10" />
+        </div>
+
+        {/* Thumbnail Strip */}
+        <div className="mt-8 flex justify-center gap-3 flex-wrap">
+          {demoScreenshots.map((screenshot, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentSlide(index)}
+              className={`relative w-20 h-14 rounded-lg overflow-hidden transition-all duration-300 ${
+                index === currentSlide
+                  ? 'ring-2 ring-[#D4A5A5] ring-offset-2 scale-110'
+                  : 'opacity-60 hover:opacity-100 hover:scale-105'
+              }`}
+            >
+              <Image
+                src={screenshot.src}
+                alt={screenshot.title}
+                fill
+                className="object-cover"
+              />
+            </button>
+          ))}
+        </div>
+      </section>
+      {/* ========== END DEMO SECTION ========== */}
 
       {/* Data Pipeline */}
       <section className="max-w-6xl mx-auto px-8 py-20">
@@ -349,7 +514,7 @@ export default function Home() {
                 Join The Beta
               </h2>
               <p className="text-lg text-[#6A6A6A] max-w-2xl mx-auto leading-relaxed">
-                Be among the first to experience personalized climbing movement analysis. 
+                Be among the first to experience personalized climbing movement analysis.
                 Help us revolutionize how climbers understand their bodies.
               </p>
             </div>
@@ -383,7 +548,7 @@ export default function Home() {
 
             <div className="mt-8 text-center">
               <p className="text-sm text-[#8A8A8A]">
-                Join 500+ climbers already signed up. We'll notify you when beta access is available.
+                Join 500+ climbers already signed up. We&apos;ll notify you when beta access is available.
               </p>
             </div>
           </div>
