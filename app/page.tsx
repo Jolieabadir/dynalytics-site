@@ -85,7 +85,7 @@ export default function Home() {
           href="#signup" 
           className="px-6 py-3 bg-gradient-to-r from-[#D4A5A5] to-[#C49494] text-white rounded-full hover:from-[#C49494] hover:to-[#B8898A] transition-all duration-300 text-sm font-medium shadow-lg shadow-[#D4A5A5]/25 hover:shadow-[#D4A5A5]/40 hover:scale-105 transform"
         >
-          Contribute Data
+          Join Beta
         </Link>
       </nav>
 
@@ -108,7 +108,7 @@ export default function Home() {
           <div className="relative backdrop-blur-sm bg-white/30 rounded-3xl p-8 mb-12 border border-white/40 shadow-xl shadow-black/5">
             <p className="text-xl text-[#5A5A5A] max-w-2xl mx-auto leading-relaxed font-medium">
               Dynalytics uses pose estimation and machine learning to analyze your climbing movement, 
-              deep analysis of movement patterns to help flag risky mechanics before they become problems. Starting with climbing, but built to adapt to any movement—other sports, manual labor, rehab, and beyond.
+              helping you understand your body and prevent injuries before they happen.
             </p>
           </div>
           
@@ -166,7 +166,7 @@ export default function Home() {
             </div>
             <h3 className="text-2xl font-bold mb-3 text-[#4A4A4A]">Researchers</h3>
             <p className="text-[#6A6A6A] leading-relaxed">
-              Contribute to the growing body of knowledge in climbing biomechanics and movement analysis.
+              Contribute to the growing body of knowledge in climbing biomechanics and injury prevention.
             </p>
           </div>
         </div>
@@ -433,8 +433,8 @@ export default function Home() {
               <span className="text-white font-bold">2</span>
             </div>
             <div className="bg-white/70 backdrop-blur-lg rounded-2xl p-6 flex-1 shadow-xl border border-white/50">
-              <h3 className="font-bold text-[#4A4A4A] mb-2">Phase 2: Data Collection & ML Training</h3>
-              <p className="text-[#6A6A6A]">Gathering labeled movement data and training the injury pattern recognition model</p>
+              <h3 className="font-bold text-[#4A4A4A] mb-2">Phase 2: Personalization</h3>
+              <p className="text-[#6A6A6A]">Individual movement pattern analysis and custom recommendations</p>
             </div>
           </div>
 
@@ -443,34 +443,13 @@ export default function Home() {
               <span className="text-white font-bold">3</span>
             </div>
             <div className="bg-white/70 backdrop-blur-lg rounded-2xl p-6 flex-1 shadow-xl border border-white/50">
-              <h3 className="font-bold text-[#4A4A4A] mb-2">Phase 3: Integration & Deployment</h3>
-              <p className="text-[#6A6A6A]">Deploy the trained model and integrate with user-facing tools</p>
+              <h3 className="font-bold text-[#4A4A4A] mb-2">Phase 3: Predictive Analytics</h3>
+              <p className="text-[#6A6A6A]">Injury risk assessment and prevention strategies</p>
             </div>
           </div>
         </div>
       </section>
 
-
-      {/* What Happens to Your Data */}
-      <section className="max-w-4xl mx-auto px-8 py-20">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold bg-gradient-to-r from-[#4A4A4A] to-[#6A5A6A] bg-clip-text text-transparent">
-            What happens to your data?
-          </h2>
-        </div>
-
-        <div className="bg-white/70 backdrop-blur-lg rounded-3xl p-10 shadow-xl border border-white/50 space-y-6">
-          <p className="text-[#6A6A6A] leading-relaxed">
-            <span className="text-[#7DB9A3] font-semibold">→</span> <strong>Your video is processed, then deleted</strong> — we extract movement data, then the video is permanently removed when you click done.
-          </p>
-          <p className="text-[#6A6A6A] leading-relaxed">
-            <span className="text-[#B8A9C9] font-semibold">→</span> <strong>Only anonymized data remains</strong> — a CSV of joint angles and positions. No images, no video, nothing identifiable.
-          </p>
-          <p className="text-[#6A6A6A] leading-relaxed">
-            <span className="text-[#D4A5A5] font-semibold">→</span> <strong>Your email helps us stay in touch</strong> — we track top contributors for early access, offers, and giveaways.
-          </p>
-        </div>
-      </section>
       {/* Why Contribute */}
       <section className="max-w-6xl mx-auto px-8 py-20">
         <div className="text-center mb-16">
@@ -478,7 +457,7 @@ export default function Home() {
             Why Contribute?
           </h2>
           <p className="text-lg text-[#6A6A6A] max-w-3xl mx-auto leading-relaxed">
-            Detecting injury patterns before you feel them
+            Help build the future of climbing performance analysis
           </p>
         </div>
 
@@ -494,11 +473,11 @@ export default function Home() {
               </li>
               <li className="flex items-start gap-3">
                 <span className="text-[#7DB9A3] mt-1">•</span>
-                Exclusive access to new releases
+                Free access to beta platform
               </li>
               <li className="flex items-start gap-3">
                 <span className="text-[#7DB9A3] mt-1">•</span>
-                Giveaway entries for top contributors
+                Early access to new features
               </li>
             </ul>
           </div>
@@ -514,7 +493,7 @@ export default function Home() {
               </li>
               <li className="flex items-start gap-3">
                 <span className="text-[#7DB9A3] mt-1">•</span>
-                Improve movement screening methods
+                Improve injury prevention methods
               </li>
               <li className="flex items-start gap-3">
                 <span className="text-[#7DB9A3] mt-1">•</span>
@@ -532,11 +511,11 @@ export default function Home() {
           <div className="relative bg-white/80 backdrop-blur-xl rounded-3xl p-12 shadow-2xl border border-white/60">
             <div className="text-center mb-8">
               <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-[#4A4A4A] via-[#6A5A6A] to-[#4A4A4A] bg-clip-text text-transparent mb-4">
-                Help Us Collect Data
+                Join The Beta
               </h2>
               <p className="text-lg text-[#6A6A6A] max-w-2xl mx-auto leading-relaxed">
-                We're building a dataset to train our pattern recognition model. Your climbing videos will help make it possible.
-                
+                Be among the first to experience personalized climbing movement analysis.
+                Help us revolutionize how climbers understand their bodies.
               </p>
             </div>
 
@@ -554,7 +533,6 @@ export default function Home() {
                   <option>Your role</option>
                   <option>Athlete</option>
                   <option>Physical Therapist</option>
-                  <option>Coach</option>
                   <option>Researcher</option>
                   <option>Other</option>
                 </select>
@@ -563,14 +541,14 @@ export default function Home() {
               <div className="relative group">
                 <div className="absolute inset-0 bg-gradient-to-r from-[#D4A5A5] to-[#B8A9C9] rounded-2xl blur-lg opacity-60 group-hover:opacity-80 transition-opacity duration-300" />
                 <button className="relative w-full py-4 bg-gradient-to-r from-[#D4A5A5] to-[#B8A9C9] text-white rounded-2xl hover:from-[#C49494] hover:to-[#A598B8] transition-all duration-500 font-semibold text-lg hover:scale-105 transform shadow-2xl hover:shadow-3xl">
-                  Sign Up to Contribute
+                  Request Beta Access
                 </button>
               </div>
             </form>
 
             <div className="mt-8 text-center">
               <p className="text-sm text-[#8A8A8A]">
-                We&apos;ll notify you when beta access is available.
+                Join 500+ climbers already signed up. We&apos;ll notify you when beta access is available.
               </p>
             </div>
           </div>
@@ -600,7 +578,7 @@ export default function Home() {
           </div>
           <div className="w-full h-px bg-gradient-to-r from-transparent via-[#E5E5E5] to-transparent mb-4" />
           <p className="text-sm text-[#AFAFAF]">
-            © 2026 Dynalytics. All rights reserved.
+            © 2024 Dynalytics. All rights reserved.
           </p>
         </div>
       </footer>
