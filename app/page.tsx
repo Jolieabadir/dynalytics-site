@@ -108,7 +108,7 @@ export default function Home() {
           <div className="relative backdrop-blur-sm bg-white/30 rounded-3xl p-8 mb-12 border border-white/40 shadow-xl shadow-black/5">
             <p className="text-xl text-[#5A5A5A] max-w-2xl mx-auto leading-relaxed font-medium">
               Dynalytics uses pose estimation and machine learning to analyze your climbing movement, 
-              helping you understand your body and prevent injuries before they happen. Starting with climbing, but built to adapt to any movement—other sports, manual labor, rehab, and beyond.
+              deep analysis of movement patterns to help flag risky mechanics before they become problems. Starting with climbing, but built to adapt to any movement—other sports, manual labor, rehab, and beyond.
             </p>
           </div>
           
