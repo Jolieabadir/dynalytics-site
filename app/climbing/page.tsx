@@ -48,7 +48,7 @@ export default function ClimbingPage() {
           <div className="absolute -top-5 -right-5 w-16 h-16 bg-gradient-to-r from-[#B8A9C9]/20 to-[#7DB9A3]/20 rounded-full blur-xl" />
           
           <h1 className="text-7xl md:text-8xl font-black text-transparent bg-gradient-to-r from-[#4A4A4A] via-[#6A5A6A] to-[#4A4A4A] bg-clip-text mb-8 leading-tight drop-shadow-sm">
-            dynalytics
+            dynalytix
           </h1>
           <div className="relative inline-block">
             <p className="text-2xl md:text-3xl font-semibold bg-gradient-to-r from-[#B8A9C9] via-[#D4A5A5] to-[#7DB9A3] bg-clip-text text-transparent mb-12 tracking-wide relative z-10">
@@ -57,7 +57,7 @@ export default function ClimbingPage() {
           </div>
           <div className="relative backdrop-blur-sm bg-white/30 rounded-3xl p-8 mb-12 border border-white/40 shadow-xl shadow-black/5">
             <p className="text-xl text-[#5A5A5A] max-w-2xl mx-auto leading-relaxed font-medium">
-              Dynalytics uses pose estimation and machine learning to analyze your climbing movement, 
+              Dynalytix uses pose estimation and machine learning to analyze your climbing movement, 
               helping you understand your body and prevent injuries before they happen.
             </p>
           </div>
@@ -405,7 +405,7 @@ export default function ClimbingPage() {
         <div className="absolute inset-0 bg-gradient-to-t from-white/50 to-transparent rounded-3xl backdrop-blur-sm" />
         <div className="relative text-center">
           <h3 className="text-2xl font-bold bg-gradient-to-r from-[#4A4A4A] to-[#6A5A6A] bg-clip-text text-transparent mb-4">
-            dynalytics
+            dynalytix
           </h3>
           <p className="text-[#8A8A8A] mb-6">
             Movement is data. Patterns are prevention.
@@ -426,7 +426,7 @@ export default function ClimbingPage() {
           </div>
           <div className="w-full h-px bg-gradient-to-r from-transparent via-[#E5E5E5] to-transparent mb-4" />
           <p className="text-sm text-[#AFAFAF]">
-            © 2024 Dynalytics. All rights reserved.
+            © 2024 Dynalytix. All rights reserved.
           </p>
         </div>
       </footer>

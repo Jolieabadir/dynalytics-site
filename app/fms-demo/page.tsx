@@ -260,7 +260,7 @@ export default function FMSDemoPage() {
         <div className="absolute inset-0 bg-gradient-to-t from-white/50 to-transparent rounded-3xl backdrop-blur-sm" />
         <div className="relative text-center">
           <h3 className="text-2xl font-bold bg-gradient-to-r from-[#4A4A4A] to-[#6A5A6A] bg-clip-text text-transparent mb-4">
-            dynalytics
+            dynalytix
           </h3>
           <p className="text-[#8A8A8A] mb-6">Movement is data. Patterns are prevention.</p>
           <div className="flex justify-center space-x-8 mb-6">
@@ -268,7 +268,7 @@ export default function FMSDemoPage() {
             <Link href="/climbing" className="text-[#8A8A8A] hover:text-[#7DB9A3] transition-colors duration-300">Climbing</Link>
           </div>
           <div className="w-full h-px bg-gradient-to-r from-transparent via-[#E5E5E5] to-transparent mb-4" />
-          <p className="text-sm text-[#AFAFAF]">© 2024 Dynalytics. All rights reserved.</p>
+          <p className="text-sm text-[#AFAFAF]">© 2024 Dynalytix. All rights reserved.</p>
         </div>
       </footer>
     </div>
