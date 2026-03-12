@@ -1,24 +1,71 @@
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
 
+type Status = "idle" | "loading" | "success" | "error";
+
 export default function ClimbingPage() {
+  const [email, setEmail] = useState("");
+  const [role, setRole] = useState("");
+  const [status, setStatus] = useState<Status>("idle");
+  const [errorMessage, setErrorMessage] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus("loading");
+    setErrorMessage("");
+
+    try {
+      const res = await fetch("/api/signup", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, role: role || undefined }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        setStatus("error");
+        setErrorMessage(data.error || "Something went wrong");
+        return;
+      }
+
+      setStatus("success");
+      setSuccessMessage(data.message || "You're on the list!");
+    } catch {
+      setStatus("error");
+      setErrorMessage("Network error. Please try again.");
+    }
+  };
+
+  const resetForm = () => {
+    setEmail("");
+    setRole("");
+    setStatus("idle");
+    setErrorMessage("");
+    setSuccessMessage("");
+  };
+
   return (
     <div className="min-h-screen overflow-hidden relative bg-gradient-to-br from-[#FEFBFB] via-white to-[#F8F6FF]">
       {/* Enhanced floating blobs */}
       <div className="absolute top-20 left-10 w-64 h-64 bg-gradient-to-r from-[#F8E8E8] to-[#E8D5D5] blob opacity-60 blur-3xl animate-pulse" />
-      <div 
-        className="absolute top-40 right-20 w-96 h-96 bg-gradient-to-r from-[#E8E0F0] to-[#D4C4E0] blob opacity-50 blur-3xl" 
+      <div
+        className="absolute top-40 right-20 w-96 h-96 bg-gradient-to-r from-[#E8E0F0] to-[#D4C4E0] blob opacity-50 blur-3xl"
         style={{ animationDelay: '1s' }}
       />
-      <div 
-        className="absolute bottom-20 left-1/3 w-80 h-80 bg-gradient-to-r from-[#E0EDE8] to-[#C7DDD0] blob opacity-50 blur-3xl" 
+      <div
+        className="absolute bottom-20 left-1/3 w-80 h-80 bg-gradient-to-r from-[#E0EDE8] to-[#C7DDD0] blob opacity-50 blur-3xl"
         style={{ animationDelay: '2s' }}
       />
-      <div 
-        className="absolute top-1/2 left-1/4 w-48 h-48 bg-gradient-to-r from-[#F0E8F8] to-[#E0D4E8] blob opacity-30 blur-2xl" 
+      <div
+        className="absolute top-1/2 left-1/4 w-48 h-48 bg-gradient-to-r from-[#F0E8F8] to-[#E0D4E8] blob opacity-30 blur-2xl"
         style={{ animationDelay: '3s' }}
       />
-      <div 
-        className="absolute bottom-1/3 right-1/4 w-56 h-56 bg-gradient-to-r from-[#E8F0E8] to-[#D0E8D0] blob opacity-40 blur-2xl" 
+      <div
+        className="absolute bottom-1/3 right-1/4 w-56 h-56 bg-gradient-to-r from-[#E8F0E8] to-[#D0E8D0] blob opacity-40 blur-2xl"
         style={{ animationDelay: '4s' }}
       />
 
@@ -37,6 +84,9 @@ export default function ClimbingPage() {
           <Link href="/fms-demo" className="px-5 py-2.5 text-[#6A6A6A] hover:text-[#D4A5A5] transition-colors text-sm font-medium">
             Movement Demo
           </Link>
+          <a href="#signup" className="px-5 py-2.5 text-[#6A6A6A] hover:text-[#7DB9A3] transition-colors text-sm font-medium">
+            Join Beta
+          </a>
         </div>
       </nav>
 
@@ -46,7 +96,7 @@ export default function ClimbingPage() {
           {/* Decorative elements */}
           <div className="absolute -top-10 -left-10 w-20 h-20 bg-gradient-to-r from-[#D4A5A5]/20 to-[#B8A9C9]/20 rounded-full blur-xl" />
           <div className="absolute -top-5 -right-5 w-16 h-16 bg-gradient-to-r from-[#B8A9C9]/20 to-[#7DB9A3]/20 rounded-full blur-xl" />
-          
+
           <h1 className="text-7xl md:text-8xl font-black text-transparent bg-gradient-to-r from-[#4A4A4A] via-[#6A5A6A] to-[#4A4A4A] bg-clip-text mb-8 leading-tight drop-shadow-sm">
             dynalytix
           </h1>
@@ -57,11 +107,11 @@ export default function ClimbingPage() {
           </div>
           <div className="relative backdrop-blur-sm bg-white/30 rounded-3xl p-8 mb-12 border border-white/40 shadow-xl shadow-black/5">
             <p className="text-xl text-[#5A5A5A] max-w-2xl mx-auto leading-relaxed font-medium">
-              Dynalytix uses pose estimation and machine learning to analyze your climbing movement, 
+              Dynalytix uses pose estimation and machine learning to analyze your climbing movement,
               helping you understand your body and prevent injuries before they happen.
             </p>
           </div>
-          
+
           <div className="relative inline-block group">
             <div className="absolute inset-0 bg-gradient-to-r from-[#D4A5A5] to-[#B8A9C9] rounded-full blur-xl opacity-60 group-hover:opacity-80 transition-opacity duration-300" />
             <a
@@ -98,7 +148,7 @@ export default function ClimbingPage() {
             </div>
             <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-[#4A4A4A] to-[#6A5A6A] bg-clip-text text-transparent">Athletes</h3>
             <p className="text-[#6A6A6A] leading-relaxed font-medium">
-              Athletes seeking to understand their movement patterns, identify inefficiencies, 
+              Athletes seeking to understand their movement patterns, identify inefficiencies,
               and optimize their climbing performance through data-driven insights.
             </p>
           </div>
@@ -109,7 +159,7 @@ export default function ClimbingPage() {
             </div>
             <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-[#4A4A4A] to-[#6A5A6A] bg-clip-text text-transparent">Physical Therapists</h3>
             <p className="text-[#6A6A6A] leading-relaxed font-medium">
-              Healthcare professionals who need objective movement data to improve 
+              Healthcare professionals who need objective movement data to improve
               injury prevention and rehabilitation programs for climbing athletes.
             </p>
           </div>
@@ -120,7 +170,7 @@ export default function ClimbingPage() {
             </div>
             <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-[#4A4A4A] to-[#6A5A6A] bg-clip-text text-transparent">Researchers</h3>
             <p className="text-[#6A6A6A] leading-relaxed font-medium">
-              Researchers studying climbing biomechanics who need access to high-quality, 
+              Researchers studying climbing biomechanics who need access to high-quality,
               labeled movement data for advancing sports science.
             </p>
           </div>
@@ -188,7 +238,7 @@ export default function ClimbingPage() {
             <p className="font-bold text-[#4A4A4A] text-lg">Base Model</p>
             <p className="text-sm text-[#7A7A7A]">Trained on many climbers</p>
           </div>
-          
+
           <svg className="w-8 h-8 text-[#B8A9C9]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
           </svg>
@@ -224,7 +274,7 @@ export default function ClimbingPage() {
           <h2 className="text-3xl font-bold text-center mb-8 bg-gradient-to-r from-[#4A4A4A] to-[#6A5A6A] bg-clip-text text-transparent">
             Data Pipeline
           </h2>
-          
+
           <div className="overflow-x-auto">
             <table className="w-full">
               <thead>
@@ -261,7 +311,7 @@ export default function ClimbingPage() {
         <h2 className="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-[#4A4A4A] to-[#6A5A6A] bg-clip-text text-transparent">
           Roadmap
         </h2>
-        
+
         <div className="space-y-8">
           <div className="flex items-start gap-6">
             <div className="w-12 h-12 bg-gradient-to-r from-[#7DB9A3] to-[#6AA892] rounded-full flex items-center justify-center flex-shrink-0 shadow-lg">
@@ -352,7 +402,7 @@ export default function ClimbingPage() {
       </section>
 
       {/* Enhanced Signup */}
-      <section id="signup" className="max-w-4xl mx-auto px-8 py-20">
+      <section id="signup" className="scroll-mt-24 max-w-4xl mx-auto px-8 py-20">
         <div className="relative">
           <div className="absolute inset-0 bg-gradient-to-r from-[#D4A5A5]/10 via-[#B8A9C9]/5 to-[#7DB9A3]/10 rounded-3xl blur-3xl" />
           <div className="relative bg-white/80 backdrop-blur-xl rounded-3xl p-12 shadow-2xl border border-white/60">
@@ -366,32 +416,64 @@ export default function ClimbingPage() {
               </p>
             </div>
 
-            <form className="max-w-md mx-auto space-y-6">
-              <div className="group">
-                <input
-                  type="email"
-                  placeholder="Enter your email"
-                  className="w-full px-6 py-4 bg-white/70 backdrop-blur-sm border border-white/50 rounded-2xl focus:outline-none focus:border-[#D4A5A5] transition-all duration-300 text-[#4A4A4A] placeholder-[#8A8A8A] shadow-lg focus:shadow-xl group-hover:bg-white/80"
-                />
-              </div>
-              
-              <div className="group">
-                <select className="w-full px-6 py-4 bg-white/70 backdrop-blur-sm border border-white/50 rounded-2xl focus:outline-none focus:border-[#D4A5A5] transition-all duration-300 text-[#4A4A4A] shadow-lg focus:shadow-xl group-hover:bg-white/80">
-                  <option>Your role</option>
-                  <option>Athlete</option>
-                  <option>Physical Therapist</option>
-                  <option>Researcher</option>
-                  <option>Other</option>
-                </select>
-              </div>
-
-              <div className="relative group">
-                <div className="absolute inset-0 bg-gradient-to-r from-[#D4A5A5] to-[#B8A9C9] rounded-2xl blur-lg opacity-60 group-hover:opacity-80 transition-opacity duration-300" />
-                <button className="relative w-full py-4 bg-gradient-to-r from-[#D4A5A5] to-[#B8A9C9] text-white rounded-2xl hover:from-[#C49494] hover:to-[#A598B8] transition-all duration-500 font-semibold text-lg hover:scale-105 transform shadow-2xl hover:shadow-3xl">
-                  Request Beta Access
+            {status === "success" ? (
+              <div className="text-center py-8">
+                <div className="w-16 h-16 bg-gradient-to-r from-[#7DB9A3] to-[#6AA892] rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-[#7DB9A3]/30">
+                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                <p className="text-xl text-[#4A4A4A] font-semibold mb-4">{successMessage}</p>
+                <button
+                  onClick={resetForm}
+                  className="text-[#D4A5A5] hover:text-[#C49494] font-medium underline underline-offset-4 transition-colors"
+                >
+                  Sign up another email
                 </button>
               </div>
-            </form>
+            ) : (
+              <form onSubmit={handleSubmit} className="max-w-md mx-auto space-y-6">
+                <div className="group">
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="Enter your email"
+                    required
+                    className="w-full px-6 py-4 bg-white/70 backdrop-blur-sm border border-white/50 rounded-2xl focus:outline-none focus:border-[#D4A5A5] transition-all duration-300 text-[#4A4A4A] placeholder-[#8A8A8A] shadow-lg focus:shadow-xl group-hover:bg-white/80"
+                  />
+                </div>
+
+                <div className="group">
+                  <select
+                    value={role}
+                    onChange={(e) => setRole(e.target.value)}
+                    className="w-full px-6 py-4 bg-white/70 backdrop-blur-sm border border-white/50 rounded-2xl focus:outline-none focus:border-[#D4A5A5] transition-all duration-300 text-[#4A4A4A] shadow-lg focus:shadow-xl group-hover:bg-white/80"
+                  >
+                    <option value="">Your role</option>
+                    <option value="Athlete">Athlete</option>
+                    <option value="Physical Therapist">Physical Therapist</option>
+                    <option value="Researcher">Researcher</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+
+                {status === "error" && (
+                  <p className="text-red-500 text-center text-sm">{errorMessage}</p>
+                )}
+
+                <div className="relative group">
+                  <div className="absolute inset-0 bg-gradient-to-r from-[#D4A5A5] to-[#B8A9C9] rounded-2xl blur-lg opacity-60 group-hover:opacity-80 transition-opacity duration-300" />
+                  <button
+                    type="submit"
+                    disabled={status === "loading"}
+                    className="relative w-full py-4 bg-gradient-to-r from-[#D4A5A5] to-[#B8A9C9] text-white rounded-2xl hover:from-[#C49494] hover:to-[#A598B8] transition-all duration-500 font-semibold text-lg hover:scale-105 transform shadow-2xl hover:shadow-3xl disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:scale-100"
+                  >
+                    {status === "loading" ? "Signing up..." : "Request Beta Access"}
+                  </button>
+                </div>
+              </form>
+            )}
 
             <div className="mt-8 text-center">
               <p className="text-sm text-[#8A8A8A]">
@@ -419,16 +501,19 @@ export default function ClimbingPage() {
             <Link href="/fms-demo" className="text-[#8A8A8A] hover:text-[#B8A9C9] transition-colors duration-300 hover:scale-110 transform">
               Movement Demo
             </Link>
-            <a href="#" className="text-[#8A8A8A] hover:text-[#D4A5A5] transition-colors duration-300 hover:scale-110 transform">
+            <Link href="/privacy" className="text-[#8A8A8A] hover:text-[#D4A5A5] transition-colors duration-300 hover:scale-110 transform">
               Privacy Policy
-            </a>
-            <a href="#" className="text-[#8A8A8A] hover:text-[#7DB9A3] transition-colors duration-300 hover:scale-110 transform">
+            </Link>
+            <Link href="/terms" className="text-[#8A8A8A] hover:text-[#B8A9C9] transition-colors duration-300 hover:scale-110 transform">
+              Terms of Service
+            </Link>
+            <a href="mailto:hello@dynalytix.com" className="text-[#8A8A8A] hover:text-[#7DB9A3] transition-colors duration-300 hover:scale-110 transform">
               Contact
             </a>
           </div>
           <div className="w-full h-px bg-gradient-to-r from-transparent via-[#E5E5E5] to-transparent mb-4" />
           <p className="text-sm text-[#AFAFAF]">
-            © 2024 Dynalytix. All rights reserved.
+            © {new Date().getFullYear()} Dynalytix. All rights reserved.
           </p>
         </div>
       </footer>
