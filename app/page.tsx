@@ -57,7 +57,7 @@ export default function Home() {
             </div>
           </Link>
 
-          {/* FMS Demo Card */}
+          {/* Movement Assessment Demo Card */}
           <Link href="/fms-demo" className="group relative block">
             <div className="absolute inset-0 bg-gradient-to-br from-[#D4A5A5]/20 to-[#B8A9C9]/20 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             <div className="relative bg-white/70 backdrop-blur-lg rounded-3xl p-10 shadow-2xl border border-white/50 hover:shadow-[#D4A5A5]/20 hover:shadow-3xl transition-all duration-500 group-hover:scale-[1.02] group-hover:bg-white/80 h-full flex flex-col">
@@ -65,10 +65,10 @@ export default function Home() {
                 <span className="text-3xl">🏥</span>
               </div>
               <h2 className="text-3xl font-bold mb-4 bg-gradient-to-r from-[#4A4A4A] to-[#6A5A6A] bg-clip-text text-transparent">
-                FMS Assessment Demo
+                Movement Assessment Demo
               </h2>
               <p className="text-[#6A6A6A] leading-relaxed font-medium mb-6 flex-1">
-                Functional Movement Screen powered by computer vision. Upload video, get pose data extraction, 
+                Movement assessment powered by computer vision. Upload video, get pose data extraction,
                 scoring, patient &amp; provider reports with CPT code suggestions.
               </p>
               <div className="flex items-center gap-2 text-[#D4A5A5] font-semibold">

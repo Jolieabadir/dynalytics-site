@@ -35,7 +35,7 @@ export default function ClimbingPage() {
             Climbing
           </span>
           <Link href="/fms-demo" className="px-5 py-2.5 text-[#6A6A6A] hover:text-[#D4A5A5] transition-colors text-sm font-medium">
-            FMS Demo
+            Movement Demo
           </Link>
         </div>
       </nav>
@@ -417,7 +417,7 @@ export default function ClimbingPage() {
               Home
             </Link>
             <Link href="/fms-demo" className="text-[#8A8A8A] hover:text-[#B8A9C9] transition-colors duration-300 hover:scale-110 transform">
-              FMS Demo
+              Movement Demo
             </Link>
             <a href="#" className="text-[#8A8A8A] hover:text-[#D4A5A5] transition-colors duration-300 hover:scale-110 transform">
               Privacy Policy

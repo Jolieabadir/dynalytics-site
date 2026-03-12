@@ -8,7 +8,7 @@ const slides = [
   {
     src: "/fms-demo/1-upload.png",
     title: "Upload Video",
-    description: "Upload a deep squat assessment video to begin FMS analysis. Supports .mov, .mp4, and .avi formats.",
+    description: "Upload a deep squat assessment video to begin movement analysis. Supports .mov, .mp4, and .avi formats.",
   },
   {
     src: "/fms-demo/2-uploading.png",
@@ -23,7 +23,7 @@ const slides = [
   {
     src: "/fms-demo/4-assessment.png",
     title: "Score the Movement",
-    description: "Score the FMS Deep Squat from 0–3 using Quick Mode or detailed criteria. Add pain flags and clinical notes.",
+    description: "Score the Deep Squat from 0–3 using Quick Mode or detailed criteria. Add pain flags and clinical notes.",
   },
   {
     src: "/fms-demo/5-completed.png",
@@ -90,7 +90,7 @@ export default function FMSDemoPage() {
             Climbing
           </Link>
           <span className="px-5 py-2.5 bg-gradient-to-r from-[#D4A5A5] to-[#C49494] text-white rounded-full text-sm font-medium shadow-lg shadow-[#D4A5A5]/25">
-            FMS Demo
+            Movement Demo
           </span>
         </div>
       </nav>
@@ -98,10 +98,10 @@ export default function FMSDemoPage() {
       {/* Hero */}
       <section className="relative z-10 max-w-4xl mx-auto px-8 pt-16 pb-8 text-center">
         <h1 className="text-5xl md:text-6xl font-black text-transparent bg-gradient-to-r from-[#4A4A4A] via-[#6A5A6A] to-[#4A4A4A] bg-clip-text mb-4 leading-tight">
-          FMS Deep Squat Assessment
+          Deep Squat Movement Assessment
         </h1>
         <p className="text-xl text-[#6A6A6A] max-w-2xl mx-auto leading-relaxed">
-          Computer vision–powered Functional Movement Screening with automated pose extraction, 
+          Computer vision–powered movement screening with automated pose extraction,
           scoring, and clinical report generation.
         </p>
       </section>
@@ -126,7 +126,7 @@ export default function FMSDemoPage() {
                 <h3 className="text-lg font-bold bg-gradient-to-r from-[#4A4A4A] to-[#6A5A6A] bg-clip-text text-transparent">
                   Test it out for yourself
                 </h3>
-                <p className="text-sm text-[#8A8A8A]">Try the live FMS assessment tool</p>
+                <p className="text-sm text-[#8A8A8A]">Try the live movement assessment tool</p>
               </div>
             </div>
             <div className="w-10 h-10 bg-white/80 rounded-full flex items-center justify-center shadow-md group-hover:bg-gradient-to-r group-hover:from-[#D4A5A5] group-hover:to-[#B8A9C9] transition-all duration-300">
@@ -248,7 +248,7 @@ export default function FMSDemoPage() {
             <div className="w-14 h-14 bg-gradient-to-r from-[#B8A9C9]/20 to-[#A598B8]/20 rounded-2xl flex items-center justify-center mb-5 group-hover:from-[#B8A9C9] group-hover:to-[#A598B8] transition-all duration-300">
               <span className="text-xl group-hover:text-white">📊</span>
             </div>
-            <h3 className="text-lg font-bold mb-2 text-[#4A4A4A]">FMS Scoring</h3>
+            <h3 className="text-lg font-bold mb-2 text-[#4A4A4A]">Movement Scoring</h3>
             <p className="text-[#6A6A6A] text-sm leading-relaxed">
               Score 0–3 with Quick Mode or detailed criteria. Bilateral difference and asymmetry detection built in.
             </p>
@@ -270,7 +270,7 @@ export default function FMSDemoPage() {
       <section className="relative z-10 max-w-4xl mx-auto px-8 py-16 text-center">
         <div className="bg-white/80 backdrop-blur-xl rounded-3xl p-12 shadow-2xl border border-white/60">
           <h2 className="text-3xl font-bold bg-gradient-to-r from-[#4A4A4A] to-[#6A5A6A] bg-clip-text text-transparent mb-4">
-            Interested in the FMS Tool?
+            Interested in the Movement Assessment Tool?
           </h2>
           <p className="text-[#6A6A6A] mb-8 max-w-lg mx-auto">
             We&apos;re building the future of movement assessment. Get in touch to learn more or request early access.
