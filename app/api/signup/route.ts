@@ -179,17 +179,22 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const signups = await readSignups();
-
-    const existingSignup = signups.find(
-      (s) => s.email.toLowerCase() === normalizedEmail
-    );
-
-    if (existingSignup) {
-      return NextResponse.json(
-        { error: "This email is already signed up" },
-        { status: 409 }
+    // Try to check for duplicates (works locally, may fail on Vercel)
+    let signups: Signup[] = [];
+    try {
+      signups = await readSignups();
+      const existingSignup = signups.find(
+        (s) => s.email.toLowerCase() === normalizedEmail
       );
+      if (existingSignup) {
+        return NextResponse.json(
+          { error: "This email is already signed up" },
+          { status: 409 }
+        );
+      }
+    } catch {
+      // File system not available (Vercel), skip duplicate check
+      console.log("File system not available, skipping duplicate check");
     }
 
     const emailSent = await sendWelcomeEmail(normalizedEmail, role);
@@ -201,8 +206,14 @@ export async function POST(request: NextRequest) {
       emailSent,
     };
 
-    signups.push(newSignup);
-    await writeSignups(signups);
+    // Try to save signup (works locally, may fail on Vercel)
+    try {
+      signups.push(newSignup);
+      await writeSignups(signups);
+    } catch {
+      // File system not available (Vercel), skip file storage
+      console.log("File system not available, skipping file storage");
+    }
 
     return NextResponse.json(
       {
